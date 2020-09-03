@@ -2,6 +2,8 @@
 
 The original algorithm is implemented in R by Suzuki and Shimodira (2006): Pvclust: an R package for assessing the uncertanity in hierarchical clustering. This is its Python reimplementation. The final values produced are Approximately Unbiased _p_-value (AU) and Bootstrap Probability (BP) which are reporting the significance of each cluster in clustering structure. The AU value is less biased and clusters that have this value greater than 95% are considered significant. Both values are calculated using Multiscale Bootstrap Resampling.
 
+This implementation is part of the Master Thesis at the Faculty of Computer and Information Science, Univeristy of Ljubljana. 
+
 ## Example
 Here, we will show exmple of usage of the Python implemention on the Boston Housing dataset. 
 
@@ -15,26 +17,29 @@ if __name__ == "__main__":
     X = pd.DataFrame(X)
     pv = PvClust(X, method="ward", metric="euclidean", nboot=1000)
 ```
-While aglorithm is running we follow its stages:
-SLIKA
+While aglorithm is running we follow its stages.
+
+![bootstrap_stages](/images/bootstrap_stages.PNG)
 
 To display the obtained dendrogram with _p_-values we call `pv.plot()`.
-SLIKA
 
-To display results we call `pv.result`:
-SLIKA
+![dendrogram](/images/dendrogram.png)
 
-If we are interested in specific clusters or want to display values with certain decimal points we can use function `print_result`.
+To display result we call function `print_result`.
+
+
+Furthermore, if we are interested in specific clusters or want to display values with certain decimal points we can call following:
 ```python
 pv.print_result(which=[2, 6], digits=5)
 ```
-SLIKA
+
+
 
 The standard errors of AU _p_-values can be displayed on a graph by calling function `seplot`.
 ```python
 pv.seplot()
 ```
-SLIKA
+![seplot](/images/seplot.png)
 
 
 
@@ -49,3 +54,4 @@ if __name__ == "__main__":
     X = pd.DataFrame(X)
     pv = PvClust(X, method='ward', metric='euclidean', nboot=1000 , parallel=True)
 ```
+![parallel](/images/parallel.PNG)
