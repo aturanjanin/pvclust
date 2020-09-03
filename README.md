@@ -27,12 +27,13 @@ To display the obtained dendrogram with _p_-values we call `pv.plot()`.
 
 To display result we call function `print_result`.
 
+![results](/images/results.PNG)
 
 Furthermore, if we are interested in specific clusters or want to display values with certain decimal points we can call following:
 ```python
 pv.print_result(which=[2, 6], digits=5)
 ```
-
+![results2](/images/results2.PNG)
 
 
 The standard errors of AU _p_-values can be displayed on a graph by calling function `seplot`.
