@@ -26,6 +26,9 @@ To display the obtained dendrogram with _p_-values we call `pv.plot()`.
 ![dendrogram](/images/dendrogram.png)
 
 To display result we call function `print_result`.
+```python
+pv.print_result()
+```
 
 ![results](/images/results.PNG)
 
