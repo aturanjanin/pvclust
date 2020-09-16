@@ -2,7 +2,7 @@
 
 The original algorithm is implemented in R by Suzuki and Shimodira (2006): Pvclust: an R package for assessing the uncertanity in hierarchical clustering. This is its Python reimplementation. The final values produced are Approximately Unbiased _p_-value (AU) and Bootstrap Probability (BP) which are reporting the significance of each cluster in clustering structure. The AU value is less biased and clusters that have this value greater than 95% are considered significant. Both values are calculated using Multiscale Bootstrap Resampling.
 
-This implementation is part of the Master Thesis at the Faculty of Computer and Information Science, Univeristy of Ljubljana. 
+This implementation is part of the Master Thesis at the Faculty of Computer and Information Science, University of Ljubljana. 
 
 ## Example
 Here, we will show exmple of usage of the Python implemention on the Boston Housing dataset. 
