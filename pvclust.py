@@ -280,23 +280,24 @@ def plot_dendrogram(linkage_matrix, pvalues, labels=None):
     d = dendrogram(linkage_matrix, labels=labels, above_threshold_color='c',
                    color_threshold=0.1)
     ax = plt.gca()
+    maxval = max(y.values())
     for node, (x, y) in pos.items():
 
         if node == (len(pos.items())-1):
-            ax.text(x-6, y+5, 'AU', fontsize=11, fontweight='bold',
+            ax.text(x-6, y+maxval/200, 'AU', fontsize=11, fontweight='bold',
                     color='purple')
-            ax.text(x+1, y+5, 'BP', fontsize=11, fontweight='bold',
+            ax.text(x+1, y+maxval/200, 'BP', fontsize=11, fontweight='bold',
                     color='black')
         else:
-            if pvalues[node][0]*100 >= 95:
-                ax.text(x-5, y+5, f' {pvalues[node][0]*100:.0f}', fontsize=8,
+            if pvalues[node][0]*100 == 100:
+                ax.text(x-5, y+maxval/200, f' {pvalues[node][0]*100:.0f}', fontsize=8,
                         color='purple', fontweight='bold')
-                ax.text(x+1, y+5, f'{pvalues[node][1]*100:.0f}', fontsize=8,
+                ax.text(x+1, y+maxval/200, f'{pvalues[node][1]*100:.0f}', fontsize=8,
                         color='black', fontweight='bold')
             else:
-                ax.text(x-5, y+5, f' {pvalues[node][0]*100:.0f}', fontsize=8,
+                ax.text(x-5, y+maxval/200, f' {pvalues[node][0]*100:.0f}', fontsize=8,
                         color='purple')
-                ax.text(x+1, y+5, f'{pvalues[node][1]*100:.0f}', fontsize=8,
+                ax.text(x+1, y+maxval/200, f'{pvalues[node][1]*100:.0f}', fontsize=8,
                         color='black')
 #    plt.savefig('dendrogram.pdf')
 
